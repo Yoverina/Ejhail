@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>e-Shuttle</title>
+  <link rel="stylesheet" href="">
+  <style type="text/css">
+		#header{
+			text-align: center;
+		}
+		#label{
+			//position: absolute;
+			width: 150px;
+			float: left;
+			text-align: left;
+		}
+		/*label{
+			border: solid 2px;
+			padding: 25px;
+		}*/
+		#titik2{
+			//position: absolute;
+			float: left;
+			width: 20px;
+		}
+		#form{
+			float: left;
+			//border: solid 2px;
+		}
+		#label>p, #titik2>p{
+			margin: 2px;
+			//border: solid 2px;
+		}
+		#formulir{
+			display: flex;
+			justify-content: center;
+		}
+		#tombol, #content{
+			display: flex;
+			position: relative;
+			justify-content: center;
+		}
+		textarea{
+			width: 232px;
+			height: 50px;
+		}
+	</style>
+</head>
+
+<body>
+<div id="header">
+		<p>FORM PENDAFTARAN</p>
+	</div>
+	<div id="formulir">
+		<form method="get" action="form.html" onsubmit="return saveData()">
+			<div id="content">
+				<div id="label">
+					<p>Nama</p>
+					<p>Username</p>
+					<p>Email</p>
+					<p>Password</p>
+					<p>Agama</p>
+					<p>Jenis Kelamin</p>
+					<p>Hobi</p>
+					<p>Biodata</p>
+				</div>
+				<div id="titik2">
+					<p>:</p>
+					<p>:</p>
+					<p>:</p>
+					<p>:</p>
+					<p>:</p>
+					<p>:</p>
+					<p>:</p>
+					<p>:</p>
+
+				</div>
+				<div id="form">
+						<!-- <label>Nama : </label> -->
+						<input type="text" id="nama" name="name"  maxlength="30" size="30" placeholder="Max 30 Characters"><br>
+
+						<!-- <label>Username : </label> -->
+						<label>@</label>
+						<input type="text" id="uname" name="username" maxlength="15" size="27" placeholder="Max 15 Characters"><br>
+
+						<!-- <label>Email : </label> -->
+						<input type="text" id="email" name="email" placeholder="email@domain.com" size="10">
+						<label>@</label>
+						<select name="domain">
+							<option value="gmail">gmail.com</option>
+							<option value="yahoo">Yahoo.com</option>
+							<option value="rocketmail">rocketmail.com</option>
+						</select><br>
+
+						<!-- <label>Password : </label> -->
+						<input type="password" size="30" id="pass" name="password" maxlength="10" placeholder="Max 10 Characters"><br>
+ 
+						<!-- <label>Agama : </label> -->
+						<select id="agama" name="agama">
+							<option value="Buddha">Buddha</option>
+							<option value="Kristen">Kristen Protestan</option>
+							<option value="Katholik">Katholik</option>
+							<option value="Muslim">Muslim</option>
+							<option value="Hindu">Hindu</option>
+						</select><br>
+
+						<!-- <label>Jenis  Kelamin : </label> -->
+						<input type="radio" id="laki" name="gender" value="Laki">L
+						<input type="radio" id="perempuan" name="gender" value="Perempuan">P
+						<br>
+
+
+						
+				</div>
+			</div>
+			<div id="tombol">
+				<input type="submit" name="submit">
+				<input type="reset" name="reset">
+			</div>
+		</form>
+	</div>
+
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+<script src="js/firebase.js"></script>
+</body>
+</html>
