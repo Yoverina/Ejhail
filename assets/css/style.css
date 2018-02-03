@@ -1,0 +1,132 @@
+@font-face {
+    font-family: 'Glober';
+    src: url('../fonts/GloberSemiBold.otf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans', sans-serif;
+    src: url('../fonts/OpenSans-Regular.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans', sans-serif;
+    src: url('../fonts/OpenSans-SemiBold.ttf');
+    font-weight: bold;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Glober';
+    margin: 0;
+    text-align: center;
+}
+
+label {
+    /* margin: 0; */
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+}
+
+/* .form-black .form-control:focus {
+    z-index: 2;
+}
+
+.form-black input,
+.form-black select {
+    background-color: #434857;
+    border-color: #434857;
+}
+
+.form-black input::placeholder {
+    color: #868e96;
+}
+
+.form-black input:focus {
+    background-color: #fff !important;
+    color: #434857 !important;
+} */
+
+button,
+select {
+    cursor: pointer;
+}
+
+.feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+}
+
+/*
+   * Sidebar
+   */
+
+.sidebar {
+    z-index: 100;
+    /* Behind the navbar */
+    padding: 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 48px;
+    /* Height of navbar */
+    height: calc(100vh - 48px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Scrollable contents if viewport is shorter than content. */
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+}
+
+.sidebar .nav-link.active {
+    color: #007bff;
+  }
+
+.sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+}
+
+/*
+   * Navbar
+   */
+
+.navbar-brand {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, .25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+}
+
+/*
+   * Utilities
+   */
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
