@@ -95,7 +95,8 @@
         $(function () {
             $('#date').datetimepicker({
                 format: 'L',
-                daysOfWeekDisabled: [0, 6]
+                daysOfWeekDisabled: [0, 6],
+                minDate: new Date().setDate(new Date().getDate() + 7)
             });
         });
     </script>
