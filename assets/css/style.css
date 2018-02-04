@@ -41,25 +41,6 @@ a {
     color: inherit;
 }
 
-/* .form-black .form-control:focus {
-    z-index: 2;
-}
-
-.form-black input,
-.form-black select {
-    background-color: #434857;
-    border-color: #434857;
-}
-
-.form-black input::placeholder {
-    color: #868e96;
-}
-
-.form-black input:focus {
-    background-color: #fff !important;
-    color: #434857 !important;
-} */
-
 button,
 select {
     cursor: pointer;
