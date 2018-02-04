@@ -62,10 +62,10 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <h1 class="h2">Booking</h1>
                 </div>
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" novalidate onsubmit="return saveToDatabase()">
                     <div class="mb-3">
                         <label for="name">Route</label>
-                        <select class="custom-select d-block w-100">
+                        <select id="route" class="custom-select d-block w-100">
                             <option selected>Choose...</option>
                             <option value="1">BCA Learning Institute - Wisma Asia</option>
                             <option value="2">Wisma Asia - BCA Learning Institute</option>
@@ -91,6 +91,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="assets/js/moment.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script src="js/firebase.js"></script>
     <script>
         $(function () {
             $('#date').datetimepicker({

@@ -1,4 +1,4 @@
-  // Initialize Firebase
+// Initialize Firebase
   var config = {
 	apiKey: "AIzaSyD2ij-mxxh-EOGuP17x1FAgS3OJ5cB9Ous",
 	authDomain: "ejhail-ajah.firebaseapp.com",
@@ -8,80 +8,62 @@
 	messagingSenderId: "237361034617"
   };
   firebase.initializeApp(config);
-//  console.log(firebase);
-//-----------------------------------------------------------
 
 //get database
-  var database = firebase.database();
+	var database = firebase.database();
 
 //get html element
-  var iname = document.getElementById("nama");
-  var iuser = document.getElementById("uname");
-  var iemail = document.getElementById("email");
-  var ipass = document.getElementById("pass");
-  var e = document.getElementById("agama");
-  var iasal;
-  var gender;
-
- //  var radios = document.getElementsByName('gender');
- //  console.log(radios[0].value);
-	// for (var i = 0; i < radios.length; i++)
-	// {
-	//  if (radios[i].checked)
-	//  {
-	//  	gender = radios[i].value;
-	//  }
-	// }
-	// var desc = document.getElementById("description");
-
 //pindahin inputan ke variabel
- function saveData() {
-	iname = iname.value;
-	iuser = iuser.value;
-	iemail = iemail.value;
-	ipass = ipass.value;
-	iasal = e.options[e.selectedIndex].value;
-	if (document.getElementById('laki').checked) {
-		gender = "Laki laki"
-	} else if (document.getElementById('perempuan').checked) {
-		gender = "perempuan"
-	}
+ function saveToDatabase() {
+ 	var inpAsal = "";
+  	var inpTujuan = "";
+  	var route = document.getElementById("route");  	
+  	var tanggal = document.getElementById("date").value;
 
-
-	// desc = document.getElementById("description").text;
+ 	if (route.selectedIndex == 1) {
+ 		inpAsal = "BCA Learning Institute";
+ 		inpTujuan = "Wisma Asia";
+ 	}
+ 	if (route.selectedIndex == 2) {
+ 		inpAsal = "Wisma Asia";
+ 		inpTujuan = "BCA Learning Institute";
+ 	}
 
 	var data = {
-		name: iname,
-		username: iuser,
-		email: iemail,
-		password: ipass,
-		agama: iasal,
-		gender: gender
+		userID: "-----",
+		from: inpAsal,
+		to: inpTujuan,
+		date: tanggal,
+		QRcode: "--qrcodeimage--"
   	}
 
-//reference database to specific tree -> user & push data to user
-	var ref = database.ref('user');
+//reference database to specific tree -> history & push data to history
+	var ref = database.ref('history');
 	ref.push(data);
  }
- 
+
+
+//coba ambil data dari database 
 var ref1 = database.ref('user');
 ref1.on('value', gotData, errData);
 
-//coba ambil data dari database
 function gotData(data){
-	console.log(data.val());
+	if (data.val() == null) {return}
+	//console.log(data.val());
 	var user = data.val();
 	var keys = Object.keys(user);
-	console.log(keys);
+	//console.log(keys);
 	for (var i = 0; i < keys.length; i++) {
 		var k = keys[i];
 		var name = user[k].name;
 		var email = user[k].email;
-		console.log(name,email);
+		//console.log(name,email);
 	}
 }
+
 
 function errData(err){
 	console.log('Error!');
 	console.log(err);
 }
+
