@@ -61,33 +61,33 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <h2>Schedule</h2>
                 </div>
-                <h4>Destiantion BCA Learning Institute</h4>
+                <h4>Destination BCA Learning Institute</h4>
                 <div class="card-deck">
                     <div class="card" style="width: 18rem;">
-                        <div class="map"></div>
+                        <div class="map" id="mapWSA"></div>
                         <div class="card-body">
                             <h5 class="card-title">Wisma Asia</h5>
                             <p class="card-text text-center">Leave on 06.30 AM</p>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem;">
-                        <div class="map" id="map"></div>
+                        <div class="map" id="mapBogor"></div>
                         <div class="card-body">
-                            <h5 class="card-title">Wisma Asia</h5>
+                            <h5 class="card-title">Bogor</h5>
                             <p class="card-text text-center">Leave on 06.30 AM</p>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem;">
-                        <div class="map"></div>
+                        <div class="map" id="mapAlsut"></div>
                         <div class="card-body">
-                            <h5 class="card-title">Wisma Asia</h5>
+                            <h5 class="card-title">Alsut</h5>
                             <p class="card-text text-center">Leave on 06.30 AM</p>
                         </div>
                     </div>
                     <div class="card" style="width: 18rem;">
-                        <div class="map"></div>
+                        <div class="map" id="mapGading"></div>
                         <div class="card-body">
-                            <h5 class="card-title">Wisma Asia</h5>
+                            <h5 class="card-title">Kelapa Gading</h5>
                             <p class="card-text text-center">Leave on 06.30 AM</p>
                         </div>
                     </div>
@@ -98,18 +98,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>
-        function initMap() {
-            var source = {lat: -25.363, lng: 131.044};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: source
-            });
-            var marker = new google.maps.Marker({
-                position: source,
-                map: map
-            });
-        }
+    <script src="js/initMap.js">
+
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmgmgS0HfJsht4KVJTAb_EjNCDbszYERs&callback=initMap">
     </script>
