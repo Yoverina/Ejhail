@@ -10,14 +10,29 @@
     <title>Sign In</title>
 </head>
 <body class="bg-dark">
-    <form class="form-signin card">
+    <div class="form-signin card">
         <h2 class="mb-4">Sign in</h2>
         <input id="inputEmail" class="mb-2 form-control" placeholder="Email address" required="" type="email">
         <input id="inputPassword" class="form-control" placeholder="Password" required="" type="password">
-        <button class="mt-4 btn btn-dark btn-block " type="submit">Sign in</button>
-    </form>
+        <button class="mt-4 btn btn-dark btn-block " onclick="login()" type="submit">Sign in</button>
+    </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+        apiKey: "AIzaSyD2ij-mxxh-EOGuP17x1FAgS3OJ5cB9Ous",
+        authDomain: "ejhail-ajah.firebaseapp.com",
+        databaseURL: "https://ejhail-ajah.firebaseio.com",
+        projectId: "ejhail-ajah",
+        storageBucket: "ejhail-ajah.appspot.com",
+        messagingSenderId: "237361034617"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="js/login.js"></script>
 </body>
 </html>

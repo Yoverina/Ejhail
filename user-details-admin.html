@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/registration.css">
-    <title>Register User</title>
+    <title>User Details</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">e-Shuttle</a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#" onclick="logout()">Sign Out</a>
+                <a class="nav-link" href="#">Sign Out</a>
             </li>
         </ul>
     </nav>
@@ -52,50 +52,53 @@
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">User</h6>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Manage User</a>
+                            <a class="nav-link active" href="#">Manage User</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Register User</a>
+                            <a class="nav-link" href="#">Register User</a>
                         </li>
                     </ul>
                 </div>
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                    <h2>Register User</h2>
+                    <h2>User Details</h2>
                 </div>
-                <div class="needs-validation card p-4" novalidate>
-                    <div class="mb-3">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="">
-                        <div class="invalid-feedback">
-                            Please enter a valid name.
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="nip">NIP</label>
-                            <input type="text" class="form-control" id="nip" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid number.
-                            </div>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="division">Division</label>
-                            <input type="text" class="form-control" id="division" placeholder="" value="" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid division.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                        <div class="invalid-feedback">
-                            Please enter a valid email address for shipping updates.
-                        </div>
-                    </div>
-                    <button class="btn btn-dark" type="submit" onclick="register()">Register User</button>
+                <div class="card mb-4">
+                    <table class="table table-striped m-0">
+                        <tbody>
+                            <tr>
+                                <th>User ID</th>
+                                <td>9876543210</td>
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <td>What Zit Tooya</td>
+                            </tr>
+                            <tr>
+                                <th>NIP</th>
+                                <td>9876543210</td>
+                            </tr>
+                            <tr>
+                                <th>Division</th>
+                                <td>GSIT</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>name@example.com</td>
+                            </tr>
+                            <tr>
+                                <th>Booking</th>
+                                <td>99 Bookings</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-group d-flex justify-content-center" role="group">
+                    <button type="button" class="btn btn-dark">View Booking</button>
+                    <button type="button" class="btn btn-dark">Edit</button>
+                    <button type="button" class="btn btn-dark">Reset Password</button>
+                    <button type="button" class="btn btn-dark">Delete</button>
                 </div>
             </main>
         </div>
@@ -103,23 +106,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
-    
-    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyD2ij-mxxh-EOGuP17x1FAgS3OJ5cB9Ous",
-        authDomain: "ejhail-ajah.firebaseapp.com",
-        databaseURL: "https://ejhail-ajah.firebaseio.com",
-        projectId: "ejhail-ajah",
-        storageBucket: "ejhail-ajah.appspot.com",
-        messagingSenderId: "237361034617"
-      };
-      firebase.initializeApp(config);
-    </script>
-    
-    <script src="js/register.js"></script>
 </body>
 
 </html>

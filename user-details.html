@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/schedule.css">
-    <title>Schedule</title>
+    <link rel="stylesheet" href="assets/css/history.css">
+    <title>Profile</title>
 </head>
 
 <body>
@@ -40,7 +40,7 @@
                             <a class="nav-link" href="#">History</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Schedule</a>
+                            <a class="nav-link" href="#">Schedule</a>
                         </li>
                     </ul>
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">Profile</h6>
@@ -52,45 +52,44 @@
                             <a class="nav-link" href="#">Change Password</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Profile</a>
+                            <a class="nav-link active" href="#">Profile</a>
                         </li>
                     </ul>
                 </div>
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                    <h2>Schedule</h2>
+                    <h2>Profile</h2>
                 </div>
-                <h4>Destination BCA Learning Institute</h4>
-                <div class="card-deck">
-                    <div class="card" style="width: 18rem;">
-                        <div class="map" id="mapWSA"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">Wisma Asia</h5>
-                            <p class="card-text text-center">Leave on 06.30 AM</p>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 18rem;">
-                        <div class="map" id="mapBogor"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">Bogor</h5>
-                            <p class="card-text text-center">Leave on 06.30 AM</p>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 18rem;">
-                        <div class="map" id="mapAlsut"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">Alsut</h5>
-                            <p class="card-text text-center">Leave on 06.30 AM</p>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 18rem;">
-                        <div class="map" id="mapGading"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">Kelapa Gading</h5>
-                            <p class="card-text text-center">Leave on 06.30 AM</p>
-                        </div>
-                    </div>
+                <div class="card mb-4">
+                    <table class="table table-striped m-0">
+                        <tbody>
+                            <tr>
+                                <th>Name</th>
+                                <td>What Zit Tooya</td>
+                            </tr>
+                            <tr>
+                                <th>NIP</th>
+                                <td>9876543210</td>
+                            </tr>
+                            <tr>
+                                <th>Division</th>
+                                <td>GSIT</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>name@example.com</td>
+                            </tr>
+                            <tr>
+                                <th>Booking</th>
+                                <td>99 Bookings</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-group d-flex justify-content-center" role="group">
+                    <button type="button" class="btn btn-dark">Edit</button>
+                    <button type="button" class="btn btn-dark">Delete Account</button>
                 </div>
             </main>
         </div>
@@ -98,11 +97,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="js/initMap.js">
-
-    </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmgmgS0HfJsht4KVJTAb_EjNCDbszYERs&callback=initMap">
-    </script>
 </body>
 
 </html>
