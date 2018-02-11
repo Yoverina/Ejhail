@@ -1,5 +1,4 @@
  //get html element & move input to variable -> booking.html
-
  function saveToDatabase() {
  	var inpAsal = "";
   	var inpTujuan = "";
@@ -45,7 +44,7 @@
  	}
  	
 	var data = {
-		userID: "-----",
+		userID: userId,
 		from: inpAsal,
 		to: inpTujuan,
 		date: tanggal
@@ -54,4 +53,5 @@
 //reference database to specific tree -> history & push data to history
 	var ref = database.ref('history');
 	ref.push(data);
+	window.alert("Successfully booking...");
  }

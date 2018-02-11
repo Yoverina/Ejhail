@@ -1,11 +1,14 @@
-const database = firebase.database();
-const auth = firebase.auth();
+//const database = firebase.database();
 
-auth.onAuthStateChanged(function(user) {
-   if (user) {
+function login() {
+    var userEmail = document.getElementById("inputEmail").value;
+    var userPass = document.getElementById("inputPassword").value;
+    
+    auth.signInWithEmailAndPassword(userEmail, userPass).then(function(user){
+      if (user) {
      // User is signed in.
-       var user = auth.currentUser;
-     
+      //var user = auth.currentUser;
+     console.log(user);
         if(user != null){
             var leadsRef = database.ref('user').child(user.uid);
             leadsRef.on('value', function(snapshot) {
@@ -13,24 +16,21 @@ auth.onAuthStateChanged(function(user) {
                 if(userRole == "Admin")
                     window.location.replace("admin-dashboard.html");
                 else
-                    window.location.replace("dashboard.html");
+                    window.location.replace("booking.html");
             });
-        }
-   } else {
-     // No user is signed in.
-     window.alert("not logged in");
-   }
- });
+          }
+     } else {
+       // No user is signed in.
+     }
 
 
-function login() {
-    var userEmail = document.getElementById("inputEmail").value;
-    var userPass = document.getElementById("inputPassword").value;
-    
-    auth.signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+    }).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
+      console.log(errorCode);
+      console.log(errorMessage);
       // ...
     });
 }
+

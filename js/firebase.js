@@ -10,11 +10,9 @@
   firebase.initializeApp(config);
 
 //get database
-var database = firebase.database();
-
- 
-
-
+const database = firebase.database();
+const auth = firebase.auth();
+var userId;
 	// var user = data.val();
 	// var keys = Object.keys(user);
 	// //console.log(keys);
@@ -29,4 +27,23 @@ var database = firebase.database();
 function errData(err){
 	console.log('Error!');
 	console.log(err);
+}
+
+auth.onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    userId = auth.currentUser.uid;
+  }
+});
+
+function logout() {
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+        window.location.replace("login.html");
+    }).catch(function(error) {
+      // An error happened.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        window.alert("Error: " + errorMessage);
+    });
 }
