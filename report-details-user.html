@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/dashboard.css">
-    <title>Dashboard</title>
+    <link rel="stylesheet" href="assets/css/registration.css">
+    <title>Registered User Report</title>
 </head>
 
 <body>
@@ -28,38 +28,77 @@
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">Dashboard</h6>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Dashboard</a>
+                            <a class="nav-link" href="#">Dashboard</a>
+                        </li>
+                    </ul>
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">Report</h6>
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">View Report</a>
                         </li>
                     </ul>
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">Shuttle</h6>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Booking</a>
+                            <a class="nav-link" href="#">Add Booking</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">View History</a>
+                            <a class="nav-link" href="#">Manage Booking</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">View Schedule</a>
+                            <a class="nav-link" href="#">Manage Schedule</a>
                         </li>
                     </ul>
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">Profile</h6>
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">User</h6>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Change Email</a>
+                            <a class="nav-link" href="#">Manage User</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Change Password</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Manage Profile</a>
+                            <a class="nav-link" href="#">Register User</a>
                         </li>
                     </ul>
                 </div>
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                    <h2>Dashboard</h2>
+                    <h2>Registered User Report</h2>
+                </div>
+                <h4>January 2018</h4>
+                <form action="" class="input-group my-2">
+                    <input type="text" class="form-control" placeholder="Search here" id="search">
+                    <div class="input-group-append">
+                        <button class="btn btn-dark" type="button">Search</button>
+                    </div>
+                </form>
+                <div class="card mb-4">
+                    <table class="table text-center m-0">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Date Registered</th>
+                                <th scope="col">User ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>12 January 2018</td>
+                                <td>9876543210</td>
+                                <td>What Zit Tooya</td>
+                                <td>name@example.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="btn-group d-flex justify-content-center" role="group">
+                    <button type="button" class="btn btn-dark">1</button>
+                    <button type="button" class="btn btn-dark">2</button>
+                    <button type="button" class="btn btn-dark">3</button>
+                    <button type="button" class="btn btn-dark">4</button>
+                </div>
+                <div class="w-100 text-center my-4">
+                    <button type="button" class="btn btn-dark">Print Report</button>
                 </div>
             </main>
         </div>
