@@ -17,7 +17,7 @@
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">e-Shuttle</a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign Out</a>
+                <a class="nav-link" href="#" onclick="logout()">Sign Out</a>
             </li>
         </ul>
     </nav>
@@ -64,7 +64,7 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <h2>Register User</h2>
                 </div>
-                <form class="needs-validation card p-4" novalidate>
+                <div class="needs-validation card p-4" novalidate>
                     <div class="mb-3">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" placeholder="">
@@ -95,14 +95,31 @@
                             Please enter a valid email address for shipping updates.
                         </div>
                     </div>
-                    <button class="btn btn-dark" type="submit">Register User</button>
-                </form>
+                    <button class="btn btn-dark" type="submit" onclick="register()">Register User</button>
+                </div>
             </main>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD2ij-mxxh-EOGuP17x1FAgS3OJ5cB9Ous",
+        authDomain: "ejhail-ajah.firebaseapp.com",
+        databaseURL: "https://ejhail-ajah.firebaseio.com",
+        projectId: "ejhail-ajah",
+        storageBucket: "ejhail-ajah.appspot.com",
+        messagingSenderId: "237361034617"
+      };
+      firebase.initializeApp(config);
+    </script>
+    
+    <script src="js/register.js"></script>
 </body>
 
 </html>
