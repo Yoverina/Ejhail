@@ -14,9 +14,11 @@ function login() {
             leadsRef.on('value', function(snapshot) {
                 var userRole = snapshot.val().role;
                 if(userRole == "Admin")
-                    window.location.replace("admin-dashboard.html");
+                    // window.location.replace("admin-dashboard.html");
+                    window.location.href = '/admin-dashboard';
                 else
-                    window.location.replace("booking.html");
+                    // window.location.replace("booking.html");
+                    window.location.href = '/booking';
             });
           }
      } else {
