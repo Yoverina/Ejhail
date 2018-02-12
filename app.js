@@ -31,13 +31,13 @@ app.get('/registration-success', function(req, res){
     res.writeHead(200, {'Content-Type': 'text/html'});
     var path = url.parse(req.url).pathname;
     // alert(userEmail + ' + ' + userPass);
-    renderHTML('./registration.html', res);
+    renderHTML('./public/html/registration.html', res);
 });
 
 app.get('/:path',function(req,res){   
     res.writeHead(200, {'Content-Type': 'text/html'});
     var path = url.parse(req.url).pathname;
-    renderHTML('./'+ req.params.path +'.html', res);
+    renderHTML('./public/html/'+ req.params.path +'.html', res);
     // res.sendFile('registration.html');
     // res.sendFile(path.join(__dirname + '/registration.html'));
 });
