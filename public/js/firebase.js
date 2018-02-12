@@ -1,5 +1,5 @@
 // Initialize Firebase
-  var config = {
+var config = {
 	apiKey: "AIzaSyD2ij-mxxh-EOGuP17x1FAgS3OJ5cB9Ous",
 	authDomain: "ejhail-ajah.firebaseapp.com",
 	databaseURL: "https://ejhail-ajah.firebaseio.com",
@@ -10,56 +10,20 @@
   firebase.initializeApp(config);
 
 //get database
-	var database = firebase.database();
+const database = firebase.database();
+const auth = firebase.auth();
+var userId;
 
-//get html element
-//pindahin inputan ke variabel
- function saveToDatabase() {
- 	var inpAsal = "";
-  	var inpTujuan = "";
-  	var route = document.getElementById("route");  	
-  	var tanggal = document.getElementById("date").value;
-
- 	if (route.selectedIndex == 1) {
- 		inpAsal = "BCA Learning Institute";
- 		inpTujuan = "Wisma Asia";
- 	}
- 	if (route.selectedIndex == 2) {
- 		inpAsal = "Wisma Asia";
- 		inpTujuan = "BCA Learning Institute";
- 	}
-
-	var data = {
-		userID: "-----",
-		from: inpAsal,
-		to: inpTujuan,
-		date: tanggal,
-		QRcode: "--qrcodeimage--"
-  	}
-
-//reference database to specific tree -> history & push data to history
-	var ref = database.ref('history');
-	ref.push(data);
- }
-
-
-//coba ambil data dari database 
-var ref1 = database.ref('user');
-ref1.on('value', gotData, errData);
-
-function gotData(data){
-	if (data.val() == null) {return}
-	//console.log(data.val());
-	var user = data.val();
-	var keys = Object.keys(user);
-	//console.log(keys);
-	for (var i = 0; i < keys.length; i++) {
-		var k = keys[i];
-		var name = user[k].name;
-		var email = user[k].email;
-		//console.log(name,email);
-	}
-}
+// exports.userId = userId;
+	// var user = data.val();
+	// var keys = Object.keys(user);
+	// //console.log(keys);
+	// for (var i = 0; i < keys.length; i++) {
+	// 	var k = keys[i];
+	// 	var name = user[k].name;
+	// 	var email = user[k].email;
+	// 	//console.log(name,email);
+	// }
 
 
 function errData(err){
@@ -67,3 +31,21 @@ function errData(err){
 	console.log(err);
 }
 
+auth.onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    userId = auth.currentUser.uid;
+  }
+});
+
+function logout() {
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+        window.location.replace("login.html");
+    }).catch(function(error) {
+      // An error happened.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        window.alert("Error: " + errorMessage);
+    });
+}

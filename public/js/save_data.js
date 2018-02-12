@@ -53,5 +53,10 @@
 //reference database to specific tree -> history & push data to history
 	var ref = database.ref('history');
 	ref.push(data);
+	ref.limitToLast(1).on('child_added', function(data){
+		console.log(data.key);
+	});
 	window.alert("Successfully booking...");
  }
+
+ 
