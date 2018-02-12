@@ -1,3 +1,11 @@
+// var express = require('express');
+var data = {
+	userID: '',
+	from: '',
+	to: '',
+	date: ''
+  } 
+//   module.exports.data = data;
  //get html element & move input to variable -> booking.html
  function saveToDatabase() {
  	var inpAsal = "";
@@ -42,19 +50,24 @@
  		inpAsal = "Pondok Indah";
  		inpTujuan = "BCA Learning Institute";
  	}
- 	
-	var data = {
-		userID: userId,
-		from: inpAsal,
-		to: inpTujuan,
-		date: tanggal
-  	}
+	 
+	 data.userID = userId;
+	 data.from = inpAsal;
+	 data.to = inpTujuan;
+	 data.date = tanggal;
+	// var data = {
+	// 	userID: userId,
+	// 	from: inpAsal,
+	// 	to: inpTujuan,
+	// 	date: tanggal
+  	// }
 
 //reference database to specific tree -> history & push data to history
 	var ref = database.ref('history');
 	ref.push(data);
 	ref.limitToLast(1).on('child_added', function(data){
 		console.log(data.key);
+		
 	});
 	window.alert("Successfully booking...");
  }

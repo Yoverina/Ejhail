@@ -10,8 +10,6 @@ function reset(){
     document.getElementById("nip").value = "";
     document.getElementById("division").value = "";
     document.getElementById("email").value = "";
-    
-    
 }
 
 function register() {

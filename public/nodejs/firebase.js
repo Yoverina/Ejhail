@@ -1,21 +1,24 @@
-// Initialize Firebase
-var config = {
+var firebase = require('firebase/app');
+require('firebase/auth');
+require('firebase/database');
+var firebaseClient = require('firebase');
+var firebaseInit = firebase.initializeApp({
 	apiKey: "AIzaSyD2ij-mxxh-EOGuP17x1FAgS3OJ5cB9Ous",
 	authDomain: "ejhail-ajah.firebaseapp.com",
 	databaseURL: "https://ejhail-ajah.firebaseio.com",
 	projectId: "ejhail-ajah",
 	storageBucket: "ejhail-ajah.appspot.com",
 	messagingSenderId: "237361034617"
-  };
- 
-	/*
-	
-	firebase.initializeApp(config);
+})
 
 //get database
 const database = firebase.database();
 const auth = firebase.auth();
 var userId;
+
+
+exports.database = database;
+exports.auth = auth;
 
 // exports.userId = userId;
 	// var user = data.val();
@@ -37,7 +40,10 @@ function errData(err){
 auth.onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
+    console.log("onauthstatechanged called");
     userId = auth.currentUser.uid;
+    exports.userId = userId;
+    console.log(userId);
   }
 });
 
@@ -52,5 +58,3 @@ function logout() {
         window.alert("Error: " + errorMessage);
     });
 }
-
-*/
