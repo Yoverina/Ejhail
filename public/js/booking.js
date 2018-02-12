@@ -47,7 +47,8 @@
 		userID: userId,
 		from: inpAsal,
 		to: inpTujuan,
-		date: tanggal
+		date: tanggal,
+		status: "Not Used"
   	}
 
 //reference database to specific tree -> history & push data to history
