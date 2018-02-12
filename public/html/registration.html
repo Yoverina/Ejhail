@@ -65,6 +65,7 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <h2>Register User</h2>
                 </div>
+                <form id="regisForm" method="POST">
                 <div class="needs-validation card p-4" novalidate>
                     <div class="mb-3">
                         <label for="name">Name</label>
@@ -96,12 +97,15 @@
                             Please enter a valid email address for shipping updates.
                         </div>
                     </div>
-                    <button class="btn btn-dark" type="submit" onclick="register()">Register User</button>
+                    <!-- <button class="btn btn-dark" type="submit" onclick="register()">Register User</button> -->
+                    <input class="btn btn-dark" type="submit" value="Register User">
+                    </form>
                 </div>
             </main>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
@@ -109,6 +113,32 @@
     <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
     <script src="public/js/firebase.js"></script>
     <script src="public/js/register.js"></script>
+    <script>
+            $(document).ready(function(){
+                $("#regisForm").submit(function(event){
+                    event.preventDefault();
+                    var email = $('#email').val();
+                    var pass = Math.random().toString(36).slice(-8);
+                    var userName = $('#name').val();
+                    var userNip = $('#nip').val();
+                    var userDiv = $('#division').val();
+                    
+                    $.ajax({
+                        url: '/registration',
+                        method: 'post',
+                        data: JSON.stringify({ 
+                            email: email, 
+                            pass: pass,
+                            userName: userName,
+                            userNip: userNip,
+                            userDiv: userDiv 
+                        }),
+                        contentType: 'application/json',
+                        success: alert('registration success')
+                    });
+                });
+            });
+        </script>
 </body>
 
 </html>

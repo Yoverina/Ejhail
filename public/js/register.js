@@ -1,11 +1,7 @@
 var userPass;
 var userEmail;
 
-exports.userPass = userPass;
-exports.userEmail = userEmail;
-
 function reset(){
-    
     document.getElementById("name").value = "";
     document.getElementById("nip").value = "";
     document.getElementById("division").value = "";
