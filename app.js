@@ -4,11 +4,8 @@ var url = require('url');
 var fs = require('fs');
 var path = require('path');
 
-<<<<<<< HEAD
-=======
 var registerJS = require('./public/js/register.js');
 
->>>>>>> backend
 var express = require('express');
 var app = express();
 
@@ -36,22 +33,16 @@ app.get('/registration-success', function(req, res){
     res.writeHead(200, {'Content-Type': 'text/html'});
     var path = url.parse(req.url).pathname;
     // alert(userEmail + ' + ' + userPass);
-<<<<<<< HEAD
     renderHTML('./registration.html', res);
-=======
     //renderHTML('./public/html/registration.html', res);
     console.log(registerJS.userEmail);
->>>>>>> backend
 });
 
 app.get('/:path',function(req,res){   
     res.writeHead(200, {'Content-Type': 'text/html'});
     var path = url.parse(req.url).pathname;
-<<<<<<< HEAD
-    renderHTML('./'+ req.params.path +'.html', res);
-=======
+    //renderHTML('./'+ req.params.path +'.html', res);
     renderHTML('./public/html/'+ req.params.path +'.html', res);
->>>>>>> backend
     // res.sendFile('registration.html');
     // res.sendFile(path.join(__dirname + '/registration.html'));
 });
