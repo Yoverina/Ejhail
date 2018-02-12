@@ -64,7 +64,7 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <h2>Add Booking</h2>
                 </div>
-                <form class="needs-validation card p-4" novalidate>
+                <form class="needs-validation card p-4" novalidate onsubmit="addBookingAdmin()">
                     <div class="mb-3">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" placeholder="">
@@ -100,7 +100,17 @@
                         <select id="route" class="custom-select d-block w-100">
                             <option selected>Choose...</option>
                             <option value="1">BCA Learning Institute - Wisma Asia</option>
-                            <option value="2">Wisma Asia - BCA Learning Institute</option>
+                            <option value="2">BCA Learning Institute - Bogor</option>
+                            <option value="3">BCA Learning Institute - Alsut</option>
+                            <option value="4">BCA Learning Institute - Kelapa Gading</option>
+                            <option value="5">BCA Learning Institute - Bekasi</option>
+                            <option value="6">BCA Learning Institute - Pondok Indah</option>
+                            <option value="7">Wisma Asia - BCA Learning Institute</option>
+                            <option value="8">Bogor - BCA Learning Institute</option>
+                            <option value="9">Alsut - BCA Learning Institute</option>
+                            <option value="10">Kelapa Gading - BCA Learning Institute</option>
+                            <option value="11">Bekasi - BCA Learning Institute</option>
+                            <option value="12">Pondok Indah - BCA Learning Institute</option>
                         </select>
                         <div class="invalid-feedback">
                             Please choose a route.
@@ -121,6 +131,18 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script src="public/js/firebase.js"></script>
+    <script src="public/js/booking_admin.js"></script>
+    <script>
+        $(function () {
+            $('#date').datetimepicker({
+                format: 'L',
+                daysOfWeekDisabled: [0, 6],
+                minDate: new Date().setDate(new Date().getDate() + 7)
+            });
+        });
+    </script>
 </body>
 
 </html>
