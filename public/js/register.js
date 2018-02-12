@@ -1,3 +1,4 @@
+<<<<<<< HEAD:public/js/register.js
 
 const database = firebase.database();
 const auth = firebase.auth();
@@ -9,8 +10,32 @@ var userEmail;
 
 auth.onAuthStateChanged(function(user) {
    if (user) {
+=======
+var userPass;
+var userEmail;
+
+exports.userPass = userPass;
+exports.userEmail = userEmail;
+
+function reset(){
+    
+    document.getElementById("name").value = "";
+    document.getElementById("nip").value = "";
+    document.getElementById("division").value = "";
+    document.getElementById("email").value = "";
+    
+    
+}
+
+function register() {
+    userEmail = document.getElementById("email").value;
+    userPass = Math.random().toString(36).slice(-8);
+    
+    auth.createUserWithEmailAndPassword(userEmail, userPass).then(function(user){
+        if (user) {
+>>>>>>> backend:public/js/register.js
      // User is signed in.
-     var user = auth.currentUser;
+    // var user = auth.currentUser;
      
      if(user != null){
          
@@ -25,6 +50,10 @@ auth.onAuthStateChanged(function(user) {
              program: userDiv,
              role: "User"
          });
+<<<<<<< HEAD:public/js/register.js
+=======
+         
+>>>>>>> backend:public/js/register.js
          window.location.href = '/registration-success';
          window.alert("pass : " + userPass);
          
@@ -32,25 +61,10 @@ auth.onAuthStateChanged(function(user) {
     reset();     
    } else {
      // No user is signed in.
-     window.alert("not logged in");
    }
- });
 
-function reset(){
-    
-    document.getElementById("name").value = "";
-    document.getElementById("nip").value = "";
-    document.getElementById("division").value = "";
-    document.getElementById("email").value = "";
-    
-    
-}
-
-function logout() {
-    firebase.auth().signOut().then(function() {
-        // Sign-out successful.
-        window.location.replace("login.html");
     }).catch(function(error) {
+<<<<<<< HEAD:public/js/register.js
       // An error happened.
         var errorCode = error.code;
         var errorMessage = error.message;
@@ -95,6 +109,8 @@ function register() {
     });*/
     
     auth.createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+=======
+>>>>>>> backend:public/js/register.js
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;

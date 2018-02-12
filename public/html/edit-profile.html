@@ -7,10 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/style.css">
-    <link rel="stylesheet" href="public/css/registration.css">
-    
-    <title>Register User</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Edit Profile</title>
 </head>
 
 <body>
@@ -18,7 +16,7 @@
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">e-Shuttle</a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#" onclick="logout()">Sign Out</a>
+                <a class="nav-link" href="#">Sign Out</a>
             </li>
         </ul>
     </nav>
@@ -32,43 +30,40 @@
                             <a class="nav-link" href="#">Dashboard</a>
                         </li>
                     </ul>
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">Report</h6>
-                    <ul class="nav flex-column mb-2">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">View Report</a>
-                        </li>
-                    </ul>
                     <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">Shuttle</h6>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Add Booking</a>
+                            <a class="nav-link" href="#">Booking</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Manage Booking</a>
+                            <a class="nav-link" href="#">History</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Manage Schedule</a>
+                            <a class="nav-link" href="#">Schedule</a>
                         </li>
                     </ul>
-                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">User</h6>
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">Profile</h6>
                     <ul class="nav flex-column mb-2">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Manage User</a>
+                            <a class="nav-link" href="#">Change Email</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Register User</a>
+                            <a class="nav-link" href="#">Change Password</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Profile</a>
                         </li>
                     </ul>
                 </div>
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                    <h2>Register User</h2>
+                    <h2>Edit Profile</h2>
                 </div>
-                <div class="needs-validation card p-4" novalidate>
+                <form class="needs-validation card p-4" novalidate>
                     <div class="mb-3">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="">
+                        <input type="text" class="form-control" id="name" placeholder="your name" required>
                         <div class="invalid-feedback">
                             Please enter a valid name.
                         </div>
@@ -76,53 +71,30 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="nip">NIP</label>
-                            <input type="text" class="form-control" id="nip" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="nip" placeholder="" value="9876543210" required>
                             <div class="invalid-feedback">
                                 Please enter a valid number.
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="division">Division</label>
-                            <input type="text" class="form-control" id="division" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="division" placeholder="" value="GSIT" required>
                             <div class="invalid-feedback">
                                 Please enter a valid division.
                             </div>
                         </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                        <div class="invalid-feedback">
-                            Please enter a valid email address for shipping updates.
-                        </div>
-                    </div>
-                    <button class="btn btn-dark" type="submit" onclick="register()">Register User</button>>
-                </div>
+                    <button type="button" class="btn btn-dark" onclick="editProfile()">Save Changes</button>
+                </form>
             </main>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
-    
-    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyD2ij-mxxh-EOGuP17x1FAgS3OJ5cB9Ous",
-        authDomain: "ejhail-ajah.firebaseapp.com",
-        databaseURL: "https://ejhail-ajah.firebaseio.com",
-        projectId: "ejhail-ajah",
-        storageBucket: "ejhail-ajah.appspot.com",
-        messagingSenderId: "237361034617"
-      };
-      firebase.initializeApp(config);
-    </script>
-
-    <script src="public/js/register.js"></script>
-    <!-- <script src="app.js"></script> -->
-
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script src="js/firebase.js"></script>
+    <script src="js/editProfile.js"></script>
 </body>
 
 </html>
