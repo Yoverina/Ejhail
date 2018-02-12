@@ -90,7 +90,8 @@ var data = {
 	userID: '',
 	from: '',
 	to: '',
-	date: ''
+	date: '',
+	status: ''
   } 
 //   module.exports.data = data;
  //get html element & move input to variable -> booking.html
@@ -144,9 +145,10 @@ var data = {
 	 data.from = inpAsal;
 	 data.to = inpTujuan;
 	 data.date = tanggal;
+	 data.status = "Not Used";
 	 var currBookingCode;
 //reference database to specific tree -> history & push data to history
-	var ref = firebaseJS.database.ref('history');
+	var ref = firebaseJS.database.ref('history/users');
 	ref.push(data);
 	ref.limitToLast(1).on('child_added', function(data){
 		console.log(data.key);
