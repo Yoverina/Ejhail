@@ -29,6 +29,11 @@ function gotData(snapshot){
 	$('#table').append(content);
 }
 
+function errData(err){
+	console.log('Error!');
+	console.log(err);
+}
+
 function removeBooking(x){
 	var deleteRef = database.ref('history/'+x);
 	deleteRef.set(null);

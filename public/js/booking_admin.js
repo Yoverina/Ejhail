@@ -1,6 +1,10 @@
  //get html element & move input to variable -> booking.html
 
  function addBookingAdmin() {
+ 	var name = document.getElementById("name").value;
+ 	var nip = document.getElementById("nip").value;
+ 	var division = document.getElementById("division").value;
+ 	var email = document.getElementById("email").value;
  	var inpAsal = "";
   	var inpTujuan = "";
   	var route = document.getElementById("route");  	
@@ -45,13 +49,21 @@
  	}
  	
 	var data = {
-		userID: "-----",
+		name: name,
+		nip: nip,
+		division: division,
+		email: email,
+		userID: userId,
 		from: inpAsal,
 		to: inpTujuan,
 		date: tanggal
   	}
 
 //reference database to specific tree -> history & push data to history
-	var ref = database.ref('history');
+	var ref = database.ref('history/admin');
 	ref.push(data);
+	ref.limitToLast(1).on('child_added', function(data){
+		console.log('Key: ' + data.key);
+	});
+	window.alert("Successfully booking...");
  }
