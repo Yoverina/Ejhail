@@ -1,8 +1,11 @@
 
 const database = firebase.database();
 const auth = firebase.auth();
-var userPass;
+var userPass = '';
 var userEmail;
+
+// exports.userPass = userPass;
+// exports.userEmail = userEmail;
 
 auth.onAuthStateChanged(function(user) {
    if (user) {
@@ -22,8 +25,9 @@ auth.onAuthStateChanged(function(user) {
              program: userDiv,
              role: "User"
          });
-         
+         window.location.href = '/registration-success';
          window.alert("pass : " + userPass);
+         
      }
     reset();     
    } else {
@@ -55,8 +59,40 @@ function logout() {
 }
 
 function register() {
+    // alert("aaa");
+    
     userEmail = document.getElementById("email").value;
     userPass = Math.random().toString(36).slice(-8);
+    /*var nodemailer = require('nodemailer');
+    
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        secure: false,
+        port: 25,
+        
+        auth: {
+            user: 'shuttle.management.bca@gmail.com',
+            pass: 'pedj04ng.Ejhail'
+        },
+        tls: {
+            rejectUnauthorized: false
+        }
+    });
+
+    var mailOptions = {
+        from: '"Shuttle Account" <shuttle.management.bca@gmail.com>',
+        to: 'aldonovendi@gmail.com',
+        subject: 'Testing',
+        text: userPass,
+    };
+    
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });*/
     
     auth.createUserWithEmailAndPassword(userEmail, userPass).catch(function(error) {
       // Handle Errors here.
