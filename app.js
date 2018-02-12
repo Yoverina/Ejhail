@@ -4,6 +4,8 @@ var url = require('url');
 var fs = require('fs');
 var path = require('path');
 
+var registerJS = require('./public/js/register.js');
+
 var express = require('express');
 var app = express();
 
@@ -31,7 +33,8 @@ app.get('/registration-success', function(req, res){
     res.writeHead(200, {'Content-Type': 'text/html'});
     var path = url.parse(req.url).pathname;
     // alert(userEmail + ' + ' + userPass);
-    renderHTML('./public/html/registration.html', res);
+    //renderHTML('./public/html/registration.html', res);
+    console.log(registerJS.userEmail);
 });
 
 app.get('/:path',function(req,res){   

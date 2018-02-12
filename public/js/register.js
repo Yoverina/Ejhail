@@ -1,6 +1,9 @@
 var userPass;
 var userEmail;
 
+exports.userPass = userPass;
+exports.userEmail = userEmail;
+
 function reset(){
     
     document.getElementById("name").value = "";
@@ -34,6 +37,7 @@ function register() {
              role: "User"
          });
          
+         window.location.href = '/registration-success';
          window.alert("pass : " + userPass);
      }
     reset();     
