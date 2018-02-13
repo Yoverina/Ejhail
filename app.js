@@ -55,6 +55,12 @@ app.get('/', function(req, res){
 	res.redirect('/login');
 });
 
+app.get('/verfication/:bookingID', function(req, res){
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    var path = url.parse(req.url).pathname;
+    renderHTML('./public/html/passenger-data-verification.html', res);
+});
+
 app.get('/:path',function(req,res){   
 	console.log(firebaseJS.userId);
     res.writeHead(200, {'Content-Type': 'text/html'});
