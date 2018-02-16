@@ -40,12 +40,15 @@ function errData(err){
 auth.onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-    console.log("onauthstatechanged called");
-    userId = auth.currentUser.uid;
+	console.log("onauthstatechanged called");
+	if(userId == null){
+		userId = auth.currentUser.uid;
+	}
     exports.userId = userId;
     console.log(userId);
   }
 });
+
 
 function logout() {
     firebase.auth().signOut().then(function() {

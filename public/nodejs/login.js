@@ -4,7 +4,7 @@ module.exports = {
     login: function(req, res){
         console.log('post login');
 	var userEmail = req.body.userEmail;
-	var userPass = req.body.userPass;
+    var userPass = req.body.userPass;
 	
 	console.log(userEmail+' ' +userPass);
 	

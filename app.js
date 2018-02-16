@@ -51,6 +51,18 @@ app.post('/registration', function(req, res){
     registerJS.saveToDatabase(req, res);
 });
 
+app.post('/change-pass', function(req, res){
+    var changeProfileJS = require('./public/nodejs/changeProfile');
+    console.log('post changepass');
+    changeProfileJS.changePass(req, res);
+});
+
+app.post('/change-mail', function(req, res){
+    var changeProfileJS = require('./public/nodejs/changeProfile');
+    console.log('post changemail');
+    changeProfileJS.changeEmail(req, res);
+});
+
 app.get('/', function(req, res){
 	res.redirect('/login');
 });
