@@ -18,12 +18,14 @@
   "homepage": "https://github.com/Yoverina/e-Shuttle#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "consolidate": "^0.15.0",
     "express": "^4.16.2",
     "firebase": "^4.9.1",
     "fs": "0.0.1-security",
     "http": "0.0.0",
     "js-alert": "^1.0.4",
     "location-href": "^1.0.0",
+    "mustache": "^2.3.0",
     "nodemailer": "^4.4.2",
     "nodemon": "^1.14.12",
     "path": "^0.12.7"

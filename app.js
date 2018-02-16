@@ -1,5 +1,3 @@
-//import { userEmail, userPass } from './js/register';
-
 var myHost = 'localhost:3000/';
 module.exports.myHost = myHost;
 var url = require('url');
@@ -18,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/public', express.static(path.join(__dirname + '/public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 app.listen(3000, function(req, res){
     console.log("Start on 3000");    
 })
@@ -27,10 +26,11 @@ var http = require('http');
 function renderHTML(path, response){
     fs.readFile(path, null, function(error, data){
         if(error){
-            response.writeHead(404);
+            // response.writeHead(404);
             response.write('File not found!');
         } else {
             response.write(data);
+            // response.write('aa');
         }
         response.end();
     });
@@ -63,14 +63,50 @@ app.post('/change-mail', function(req, res){
     changeProfileJS.changeEmail(req, res);
 });
 
-app.get('/', function(req, res){
-	res.redirect('/login');
+var engine = require('consolidate');
+app.set('views', __dirname + '/public/html');
+app.engine('html', engine.mustache);
+app.set('view engine', 'html');
+
+app.get('/verification/:bookingID', function(req, res){
+    var dataVerificationJS = require('./public/nodejs/dataVerification');
+    var json = {};
+    // if(firebaseJS.database.ref('history').child('users').child(req.params.bookingID) == null){
+    //     res.send('Not found');
+    // }
+    var leadsRef = firebaseJS.database.ref('history').child('users').child(req.params.bookingID);
+    leadsRef.on('value', function(snapshot) {
+        if(snapshot.val() != null){
+            var leadsRef = firebaseJS.database.ref('user').child(snapshot.val().userID);
+            leadsRef.on('value', function(userSnapshot)  {
+                json = ({ 
+                    date: snapshot.val().date, 
+                    from: snapshot.val().from,
+                    status: snapshot.val().status,
+                    to: snapshot.val().to,
+                    name: userSnapshot.val().nama,
+                    nip: userSnapshot.val().nip,
+                    program: userSnapshot.val().program
+                });
+                res.render('passenger-data-verification.html', json);
+            });    
+        } else {
+            res.send('Data Not Found!');
+        }
+        
+    });          
 });
 
-app.get('/verfication/:bookingID', function(req, res){
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    var path = url.parse(req.url).pathname;
-    renderHTML('./public/html/passenger-data-verification.html', res);
+app.get('/verification/:bookingID/done', function(req, res){
+    console.log('done');
+    var leadsRef = firebaseJS.database.ref('history').child('users').child(req.params.bookingID);
+    leadsRef.on('value', function(snapshot) {
+        leadsRef.update({ status: "Used" })
+    });          
+}); 
+
+app.get('/', function(req, res){
+	res.redirect('/login');
 });
 
 app.get('/:path',function(req,res){   

@@ -41,6 +41,7 @@
                         data: JSON.stringify({ userEmail: userEmail, userPass: userPass }),
                         contentType: 'application/json',
                         success: function(data){
+                            // console.log(data);
                             window.location = data.redirect;
                         }
                     });

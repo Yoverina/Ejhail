@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="public/css/style.css">
-    <link rel="stylesheet" href="public/css/history.css">
+    <link rel="stylesheet" href="public/css/show_history_user.css">
     <title>Verification</title>
 </head>
 
@@ -66,37 +66,58 @@
                         <tbody>
                             <tr>
                                 <th>Name</th>
-                                <td>What Zit Tooya</td>
+                                <td><label id="name"> {{ name }}</label></td>
                             </tr>
                             <tr>
                                 <th>NIP</th>
-                                <td>9876543210</td>
+                                <td><label id="nip">{{ nip }}</label></td>
                             </tr>
                             <tr>
                                 <th>Division</th>
-                                <td>GSIT</td>
+                                <td><label id="division">{{ program }}</label></td>
                             </tr>
                             <tr>
                                 <th>Email</th>
-                                <td>name@example.com</td>
+                                <td><label id="route">{{ from }} - {{ to }}</label></td>
                             </tr>
                             <tr>
                                 <th>Booking</th>
-                                <td>99 Bookings</td>
+                                <td><label id="date">{{ date }}</label></td>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
+                                <td><label id="status">{{ status }}</label></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="btn-group d-flex justify-content-center" role="group">
-                    <button type="button" class="btn btn-dark">Use</button>
+                    <button type="button" id="useButton" class="btn btn-dark">Use</button>
                     <!-- <button type="button" class="btn btn-dark">Delete Account</button> -->
                 </div>
             </main>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+    <!-- <script src="../public/nodejs/dataVerification.js"></script> -->
+    <script>
+        $("#useButton").click(function(){
+                    $.ajax({
+                        url: document.URL + '/done',
+                        method: 'get',
+                        // data: JSON.stringify({ userEmail: userEmail, userPass: userPass }),
+                        // contentType: 'application/json',
+                        success: $('#status').text("Used")
+                    });
+                });
+        
+    </script>
 </body>
 
 </html>
