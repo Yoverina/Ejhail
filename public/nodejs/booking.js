@@ -28,42 +28,42 @@ saveToDatabase: function(req, res){
 	var route = req.body.route;
 	var tanggal = req.body.tanggal;
 	// console.log(tanggal);
-	  
+	console.log('route: ' + route);
 
- 	if (route.selectedIndex == 1) {
+ 	if (route == 1) {
  		inpAsal = "BCA Learning Institute";
  		inpTujuan = "Wisma Asia";
- 	} else if (route.selectedIndex == 2) {
+ 	} else if (route == 2) {
  		inpAsal = "BCA Learning Institute";
  		inpTujuan = "Bogor";
- 	} else if (route.selectedIndex == 3) {
+ 	} else if (route == 3) {
  		inpAsal = "BCA Learning Institute";
  		inpTujuan = "Alsut";
- 	} else if (route.selectedIndex == 4) {
+ 	} else if (route == 4) {
  		inpAsal = "BCA Learning Institute";
  		inpTujuan = "Kelapa Gading";
- 	} else if (route.selectedIndex == 5) {
+ 	} else if (route == 5) {
  		inpAsal = "BCA Learning Institute";
  		inpTujuan = "Bekasi";
- 	} else if (route.selectedIndex == 6) {
+ 	} else if (route == 6) {
  		inpAsal = "BCA Learning Institute";
  		inpTujuan = "Pondok Indah";
- 	} else if (route.selectedIndex == 7) {
+ 	} else if (route == 7) {
  		inpAsal = "Wisma Asia";
  		inpTujuan = "BCA Learning Institute";
- 	} else if (route.selectedIndex == 8) {
+ 	} else if (route == 8) {
  		inpAsal = "Bogor";
  		inpTujuan = "BCA Learning Institute";
- 	} else if (route.selectedIndex == 9) {
+ 	} else if (route == 9) {
  		inpAsal = "Alsut";
  		inpTujuan = "BCA Learning Institute";
- 	} else if (route.selectedIndex == 10) {
+ 	} else if (route == 10) {
  		inpAsal = "Kelapa Gading";
  		inpTujuan = "BCA Learning Institute";
- 	} else if (route.selectedIndex == 11) {
+ 	} else if (route == 11) {
  		inpAsal = "Bekasi";
  		inpTujuan = "BCA Learning Institute";
- 	} else if (route.selectedIndex == 12) {
+ 	} else if (route == 12) {
  		inpAsal = "Pondok Indah";
  		inpTujuan = "BCA Learning Institute";
  	}
@@ -96,15 +96,28 @@ saveToDatabase: function(req, res){
         //     rejectUnauthorized: false
         // }
     });
-    
+	
+	var name = '';
+
+	var leadsRef = firebaseJS.database.ref('user').child(firebaseJS.userId);
+	leadsRef.on('value', function(snapshot) {
+		name = snapshot.val().nama;
+	});
 
     var mailOptions = {
         
         from: '"Shuttle Account" <shuttle.management.bca@gmail.com>',
-        to: 'aldonovendi@gmail.com',
-        subject: 'Verification',
-        html:   '<p> Tujukkan email ini ke petugas shuttle <p>' +
-                '<img src = "https://chart.googleapis.com/chart?cht=qr&chl=' + app.myHost + currBookingCode + '&chs=180x180&choe=UTF-8&chld=L|2">',
+        to: firebaseJS.auth.currentUser.email,
+        subject: 'Verifikasi Data Penumpang',
+		html:   'Halo ' + name + ',' + '<br>' +
+				'Terima kasih sudah menggunakan layanan e-Shuttle.<br>' +
+				'Silakan tunjukkan email berikut kepada petugas shuttle.' + '<br>' + 
+				'Berikut data pemesanan Anda:' + '<br><br>' +
+				'Rute : ' + inpAsal + ' - ' + inpTujuan + '<br>' +
+				'Tanggal Berangkat : ' + tanggal + '<br><br>' +
+				'<img src = "https://chart.googleapis.com/chart?cht=qr&chl=' + app.myHost + 'verification/' + currBookingCode + '&chs=180x180&choe=UTF-8&chld=L|2"> <br><br>' +		
+				'Terima kasih <br><br>Hormat kami, <br>BCA Learning Institute',
+                
         attachments: [{
             filename: 'image.png',
             path: 'https://chart.googleapis.com/chart?cht=qr&chl=' + app.myHost + currBookingCode + '&chs=180x180&choe=UTF-8&chld=L|2'

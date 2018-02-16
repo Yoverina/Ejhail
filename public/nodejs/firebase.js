@@ -39,7 +39,8 @@ function errData(err){
 
 auth.onAuthStateChanged(function(user) {
   if (user) {
-    // User is signed in.
+	// User is signed in.
+	// console.log(auth.currentUser.email);
 	console.log("onauthstatechanged called");
 	if(userId == null){
 		userId = auth.currentUser.uid;

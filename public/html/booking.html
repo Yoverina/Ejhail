@@ -119,15 +119,19 @@
             $(document).ready(function(){
                 $("#bookingForm").submit(function(event){
                     event.preventDefault();
-                    var route = $('#route');
+                    var route = $('#route').val();
                     var tanggal = $('#date').val();
-                    // console.log('tanggal: '+tanggal);
+                    
                     $.ajax({
                         url: '/booking',
                         method: 'post',
                         data: JSON.stringify({ route: route, tanggal: tanggal }),
                         contentType: 'application/json',
-                        success: alert('booking success')
+                        success: (
+                            
+                            // console.log('route: '+route),
+                            alert('Booking success!')
+                        )
                     });
                 });
             });

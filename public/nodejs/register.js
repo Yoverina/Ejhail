@@ -46,15 +46,16 @@ module.exports = {
             });
 
             var mailOptions = {
-            
                 from: '"Shuttle Account" <shuttle.management.bca@gmail.com>',
-                to: 'aldonovendi@gmail.com',
-                subject: 'Data Login',
-                html: 	'<h1>Data Login<h1>' + '<br>' +
+                to: userEmail,
+                subject: 'Data Login e-Shuttle',
+                html: 	'Halo Aldo Novendi Fadly,' + '<br>' +
+                        'Selamat datang di <b>BCA Learning Institute</b>,' + '<br>' +
+                        'Berikut data login Anda untuk mengakses https://e-shuttle.com agar bisa memesan shuttle:' + '<br><br>' +
                         'email : ' + userEmail + '<br>' +
-                        'password : ' + userPass,
+                        'password : ' + userPass + '<br><br>' +
+                        'Terima kasih <br><br>Hormat kami, <br>BCA Learning Institute'
             };
-            
         
             transporter.sendMail(mailOptions, function(error, info){
                 if (error) {
