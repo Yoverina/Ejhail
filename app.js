@@ -63,10 +63,17 @@ app.post('/change-mail', function(req, res){
     changeProfileJS.changeEmail(req, res);
 });
 
+app.post('/add-schedule', function(req, res){
+    var addScheduleJS = require('./public/nodejs/addSchedule');
+    // console.log(req.body);
+    addScheduleJS.addScheduleToFirebase(req, res);    
+});
+
 var engine = require('consolidate');
 app.set('views', __dirname + '/public/html');
 app.engine('html', engine.mustache);
 app.set('view engine', 'html');
+
 
 app.get('/verification/:bookingID', function(req, res){
     var dataVerificationJS = require('./public/nodejs/dataVerification');
