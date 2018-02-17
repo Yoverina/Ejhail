@@ -20,7 +20,7 @@ var currUser;
 
 exports.database = database;
 exports.auth = auth;
-exports.user = currUser;
+
 
 // exports.userId = userId;
 	// var user = data.val();
@@ -46,9 +46,10 @@ auth.onAuthStateChanged(function(user) {
 	console.log("onauthstatechanged called");
 	if(currUser == null){
 		currUser = auth.currentUser;
+		exports.user = currUser;
 	}
     // exports.userId = userId;
-    console.log(currUser);
+	console.log(currUser.uid);
   }
 });
 
