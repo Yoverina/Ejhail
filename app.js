@@ -71,38 +71,39 @@ app.set('view engine', 'html');
 app.get('/verification/:bookingID', function(req, res){
     var dataVerificationJS = require('./public/nodejs/dataVerification');
     var json = {};
-    // if(firebaseJS.database.ref('history').child('users').child(req.params.bookingID) == null){
-    //     res.send('Not found');
-    // }
     var leadsRef = firebaseJS.database.ref('history').child('users').child(req.params.bookingID);
-    leadsRef.on('value', function(snapshot) {
+    leadsRef.once('value', function(snapshot) {
         if(snapshot.val() != null){
-            var leadsRef = firebaseJS.database.ref('user').child(snapshot.val().userID);
-            leadsRef.on('value', function(userSnapshot)  {
-                json = ({ 
-                    date: snapshot.val().date, 
-                    from: snapshot.val().from,
-                    status: snapshot.val().status,
-                    to: snapshot.val().to,
-                    name: userSnapshot.val().nama,
-                    nip: userSnapshot.val().nip,
-                    program: userSnapshot.val().program
-                });
-                res.render('passenger-data-verification.html', json);
-            });    
+            if(snapshot.val().status == "Used") {
+                res.send('Booking has been used');
+            }
+            else{
+                var leadsRef = firebaseJS.database.ref('user').child(snapshot.val().userID);
+                leadsRef.once('value', function(userSnapshot)  {
+                    json = ({ 
+                        date: snapshot.val().date, 
+                        from: snapshot.val().from,
+                        status: snapshot.val().status,
+                        to: snapshot.val().to,
+                        name: userSnapshot.val().nama,
+                        nip: userSnapshot.val().nip,
+                        program: userSnapshot.val().program
+                    });
+                    res.render('passenger-data-verification.html', json);
+                }); 
+            }   
         } else {
+            console.log('not found!');
             res.send('Data Not Found!');
         }
-        
-    });          
+    });         
 });
 
-app.get('/verification/:bookingID/done', function(req, res){
-    console.log('done');
-    var leadsRef = firebaseJS.database.ref('history').child('users').child(req.params.bookingID);
-    leadsRef.on('value', function(snapshot) {
-        leadsRef.update({ status: "Used" })
-    });          
+app.post('/verification/:bookingID/done', function(req, res){
+    console.log('booking done');
+    firebaseJS.database.ref('history').child('users').child(req.params.bookingID).set({
+        status: "Used"
+    });    
 }); 
 
 app.get('/', function(req, res){
