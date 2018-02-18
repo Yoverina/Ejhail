@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 app.use('/public', express.static(path.join(__dirname + '/public')));
 // app.use(express.static(path.join(__dirname, 'public')));
-app.listen(3000, function(req, res){
+    app.listen(3000, function(req, res){
     console.log("Start on 3000");    
 })
 
@@ -68,17 +68,28 @@ app.post('/change-mail', function(req, res){
     changeProfileJS.changeEmail(req, res);
 });
 
-app.post('/add-schedule', function(req, res){
+app.post('/add-schedule/:routeID', function(req, res){
     var addScheduleJS = require('./public/nodejs/addSchedule');
     // console.log(req.body);
     addScheduleJS.addScheduleToFirebase(req, res);    
+});
+
+app.post('/booking-detail-redirect', function(req, res){
+    console.log('routeID: ' + req.body.routeID);
+    res.send('/booking-detail-report/' + req.body.routeID);
+    // console.log('hello');
+    // res.send('aaa');
+});
+
+app.get('/booking-detail-report/:routeID', function(req, res){
+    var bookingDetailReportJS = require('./public/nodejs/bookingDetailReport');
+    bookingDetailReportJS.showDetail(req, res);
 });
 
 var engine = require('consolidate');
 app.set('views', __dirname + '/public/html');
 app.engine('html', engine.mustache);
 app.set('view engine', 'html');
-
 
 app.get('/verification/:bookingID', function(req, res){
     var dataVerificationJS = require('./public/nodejs/dataVerification');

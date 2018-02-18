@@ -12,7 +12,7 @@
     <title>Booking Report</title>
 </head>
 
-<body>
+<body onload="changeRoute()">
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">e-Shuttle</a>
         <ul class="navbar-nav px-3">
@@ -62,9 +62,9 @@
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                    <h2>Wisma Asia - BCA Learning Institute</h2>
+                    <h2 id="route">Loading - Loading</h2>
                 </div>
-                <h4>January 2018</h4>
+                <h4 id="time">Loading</h4>
                 <form action="" class="input-group my-2">
                     <input type="text" class="form-control" placeholder="Search here" id="search">
                     <div class="input-group-append">
@@ -72,20 +72,19 @@
                     </div>
                 </form>
                 <div class="card mb-4">
-                    <table class="table text-center m-0">
+                    <table class="table text-center m-0" id="table-user">
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col">Booking ID</th>
                                 <th scope="col">Date</th>
-                                <th scope="col">Email</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Program</th>
+                                <th scope="col">From</th>
+                                <th scope="col">To</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Booked by</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>0123456789</td>
-                                <td>12 January 2018</td>
-                                <td>name@example.com</td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -96,7 +95,7 @@
                     <button type="button" class="btn btn-dark">4</button>
                 </div>
                 <div class="w-100 text-center my-4">
-                    <button type="button" class="btn btn-dark">Print Report</button>
+                    <button type="button" class="btn btn-dark" onclick="exportTableToCSV('report.csv')">Print Report</button>
                 </div>
             </main>
         </div>
@@ -104,45 +103,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
-    <script>
-        var bookingCtx = document.getElementById("booking");
-        var bookingChart = new Chart(bookingCtx, {
-            type: 'line',
-            data: {
-                labels: ["January", "February", "March"],
-                datasets: [
-                    {label: 'Wisma Asia - BCA Learning Institute',
-                    data: [20, 42, 35],
-                    fill: false,
-                    borderColor: getRandomColor()},
-                    {label: 'Alam Sutera - BCA Learning Institute',
-                    data: [50, 22, 17],
-                    fill: false,
-                    borderColor: getRandomColor()},
-                    {label: 'Bekasi - BCA Learning Institute',
-                    data: [12, 61, 85],
-                    fill: false,
-                    borderColor: getRandomColor()}
-                ]
-            },
-            options: {
-                elements: {
-                    line: {
-                        tension: 0,
-                    }
-                }
-            }
-        });
-        function getRandomColor() {
-            var letters = '0123456789ABCDEF'.split('');
-            var color = '#';
-            for (var i = 0; i < 6; i++ ) {
-                color += letters[Math.floor(Math.random() * 16)];
-            }
-            return color;
-        }
-    </script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script src="../js/firebase.js"></script>
+    <script src="../js/report_details_booking.js"></script>
+    <script src="../js/tableToCSV.js"></script>
+
 </body>
 
 </html>
