@@ -65,7 +65,7 @@
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
                     <h2>Add Booking</h2>
                 </div>
-                <form class="needs-validation card p-4" novalidate onsubmit="addBookingAdmin()">
+                <form method="POST" id="bookingForm" class="needs-validation card p-4" novalidate onsubmit="addBookingAdmin()">
                     <div class="mb-3">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" placeholder="">
@@ -76,7 +76,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="nip">NIP</label>
-                            <input type="text" class="form-control" id="nip" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="guestID" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 Please enter a valid number.
                             </div>
@@ -100,18 +100,18 @@
                         <label for="name">Route</label>
                         <select id="route" class="custom-select d-block w-100">
                             <option selected>Choose...</option>
-                            <option value="1">BCA Learning Institute - Wisma Asia</option>
-                            <option value="2">BCA Learning Institute - Bogor</option>
-                            <option value="3">BCA Learning Institute - Alsut</option>
-                            <option value="4">BCA Learning Institute - Kelapa Gading</option>
-                            <option value="5">BCA Learning Institute - Bekasi</option>
-                            <option value="6">BCA Learning Institute - Pondok Indah</option>
-                            <option value="7">Wisma Asia - BCA Learning Institute</option>
-                            <option value="8">Bogor - BCA Learning Institute</option>
-                            <option value="9">Alsut - BCA Learning Institute</option>
-                            <option value="10">Kelapa Gading - BCA Learning Institute</option>
-                            <option value="11">Bekasi - BCA Learning Institute</option>
-                            <option value="12">Pondok Indah - BCA Learning Institute</option>
+                            <option value="-L5ZV2GSQWfTNa1bkFS5">BCA Learning Institute - Wisma Asia</option>
+                            <option value="-L5ZWcPHCdGiMTMiUEhe">BCA Learning Institute - Bogor</option>
+                            <option value="-L5ZWFwMcXu5pbyomTyu">BCA Learning Institute - Alsut</option>
+                            <option value="-L5ZWRkuAU9_h2UCv1Rh">BCA Learning Institute - Kelapa Gading</option>
+                            <option value="-L5ZVo8oF1sIOYPg-QVJ">BCA Learning Institute - Bekasi</option>
+                            <option value="-L5ZWOK-z054tXZXQ2_U">BCA Learning Institute - Pondok Indah</option>
+                            <option value="-L5ZYvfq9-v7pRirrnjz">Wisma Asia - BCA Learning Institute</option>
+                            <option value="-L5ZZ7NR_irW1G1Kchk2">Bogor - BCA Learning Institute</option>
+                            <option value="-L5ZZ1dfoUZlVVAQQ1y2">Alsut - BCA Learning Institute</option>
+                            <option value="-L5ZZ4_2FaIJHZy_iJxu">Kelapa Gading - BCA Learning Institute</option>
+                            <option value="-L5ZYz10gkTVCx19EjXK">Bekasi - BCA Learning Institute</option>
+                            <option value="-L5ZZ34OPjJsxevVfczV">Pondok Indah - BCA Learning Institute</option>
                         </select>
                         <div class="invalid-feedback">
                             Please choose a route.
@@ -129,23 +129,54 @@
             </main>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="assets/js/moment.js"></script>
+    <script src="public/js/moment.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
     <script src="js/firebase.js"></script>
-    <script src="js/booking_admin.js"></script>
+    <script src="js/booking_admin.js"></script> -->
     <script>
         $(function () {
             $('#date').datetimepicker({
                 format: 'L',
                 daysOfWeekDisabled: [0, 6],
-                minDate: new Date().setDate(new Date().getDate() + 7)
+                minDate: new Date().setDate(new Date().getDate() + 7),
+                // dateonly: true
             });
         });
     </script>
+        <script>
+                $(document).ready(function(){
+                    $("#bookingForm").submit(function(event){
+                        event.preventDefault();
+                        var route = $('#route').val();
+                        var date = $('#date').val();
+                        var name = $('#name').val();
+                        var guestID = $('#guestID').val();
+                        var division = $('#division').val();
+                        var email = $('#email').val();
+                        $.ajax({
+                            url: '/admin-booking',
+                            method: 'post',
+                            data: JSON.stringify({ 
+                                route: route, 
+                                date: date, 
+                                name: name,
+                                guestID: guestID,
+                                division: division,
+                                email: email
+                            }),
+                            contentType: 'application/json',
+                            success: (
+                                alert('Booking success!')
+                            )
+                        });
+                    });
+                });
+            </script>
 
 </body>
 

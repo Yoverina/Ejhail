@@ -41,6 +41,11 @@ app.post('/booking', function(req, res){
     bookingJS.saveToDatabase(req,res);
 });
 
+app.post('/admin-booking', function(req, res){
+    var bookingByAdminJS = require('./public/nodejs/bookingByAdmin');
+    bookingByAdminJS.saveToDatabase(req,res);
+});
+
 app.post('/login', function(req, res){
     var loginJS = require('./public/nodejs/login');
     loginJS.login(req, res);
